@@ -30,12 +30,12 @@ a{
 .right{
     width:20% ;
     height: 10vh;
-    margin: 15px 10px ;
+    margin: 15px 10px 15px;
    
 }
 .login{
-    background-color: rgb(88, 146, 246);
+    background-color: rgb(26, 26, 200);
 }
 .Signup{
-    background-color: rgb(88, 146, 246);
+    background-color: rgb(144, 37, 37);
 }

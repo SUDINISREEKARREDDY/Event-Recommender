@@ -84,3 +84,26 @@ button.facebook {
     background-color: #4267B2;
     color: white;
 }
+
+
+
+/* sign up page css from here */
+
+.signup-img{
+    height: 70px;
+    width: 70px;
+    margin: 0px 40%  10px  ;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+}
+p{
+    font-size: 15px;
+    color: #ccc;
+    text-align: center;
+a{
+    text-decoration: none;
+}
+}
+
+
