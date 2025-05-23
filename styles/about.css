@@ -1,7 +1,7 @@
 /* Basic Resets & Global Styles */
 :root {
     --primary-color: #6a0dad; /* A vibrant purple */
-    --secondary-color: #a723e9; /* Lighter purple for accents */
+    --secondary-color: #a45cc9; /* Lighter purple for accents */
     --text-color: #333;
     --light-text-color: #666;
     --background-color: #f8f9fa;
@@ -9,7 +9,7 @@
     --light-gray: #e9ecef;
     --border-radius: 8px;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --transition-speed: 0.3s ease;
+    --transition-speed: 0.3s ease-in-out; /* Modified: Changed to ease-in-out for smoother transitions */
 }
 
 * {
@@ -22,19 +22,36 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--background-color);
     overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+    /* Added: Subtle background animation */
+    background: linear-gradient(45deg, #f0f0f5, #e0e0e5);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+/* Added: Keyframes for background gradient animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Base anchor styling for consistency, overridden by specific navbar styles */
 a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color var(--transition-speed);
+    transition: color var(--transition-speed), transform 0.2s ease-in-out; /* Modified: Added transform for subtle hover effect */
 }
 
 a:hover {
     color: var(--secondary-color);
+    transform: scale(1.05); /* Added: Slight scale on hover */
 }
 
 ul {
@@ -45,6 +62,7 @@ h1, h2, h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
     font-weight: 700;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.05); /* Added: Subtle text shadow */
 }
 
 h1 { font-size: 3rem; }
@@ -53,12 +71,24 @@ h3 { font-size: 1.6rem; }
 
 p {
     margin-bottom: 1rem;
+    color: var(--light-text-color); /* Modified: Ensured consistent light text color */
+    transition: color var(--transition-speed); /* Added: Transition for hover effect */
+}
+
+p:hover {
+    color: var(--text-color); /* Added: Slightly darker on hover */
 }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Added: Transitions for hover */
+}
+
+img:hover {
+    transform: scale(1.03); /* Added: Slight scale on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Added: Increased shadow on hover */
 }
 
 .container {
@@ -73,12 +103,13 @@ img {
     border-radius: 50px;
     font-weight: 600;
     text-align: center;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    transition: background-color var(--transition-speed), transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Modified: Added transform and box-shadow transitions */
     border: none;
     cursor: pointer;
     font-family: 'Poppins', sans-serif; /* Ensure button text uses Poppins */
     text-decoration: none; /* Ensure link within button is not underlined */
     color: white; /* Default color for buttons */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Added: Subtle initial shadow */
 }
 
 .primary-btn {
@@ -89,6 +120,7 @@ img {
 .primary-btn:hover {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Added: Increased shadow on hover */
 }
 
 /* YOUR SPECIFIED NAV BAR STYLES (Copied directly from your prompt) */
@@ -102,6 +134,7 @@ img {
     position: sticky; /* Make nav sticky */
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Added: Subtle shadow for sticky nav */
 }
 .left{
     width: 30%;
@@ -115,7 +148,13 @@ img {
     border-radius: 50%;
     object-fit: cover;
     margin: 8px 20px;
+    transition: transform 0.3s ease-in-out; /* Added: Transition for hover */
 }
+
+.nav-img:hover {
+    transform: rotate(10deg) scale(1.1); /* Added: Rotate and scale on hover */
+}
+
 .middle{
     width: 50%;
     height: 10vh;
@@ -128,10 +167,11 @@ img {
     color: white;
     margin: 14px;
     text-decoration: none;
-    transition: color var(--transition-speed); /* Added for hover effect */
+    transition: color var(--transition-speed), transform 0.2s ease-in-out; /* Modified: Added transform for hover */
 }
 .nav .middle a:hover {
     color: var(--secondary-color); /* Added hover color */
+    transform: scale(1.1); /* Added: Scale up on hover */
 }
 .right{
     width:20% ;
@@ -148,7 +188,8 @@ img {
     border-radius: 5px; /* Added border-radius */
     border: none;
     cursor: pointer;
-    transition: background-color var(--transition-speed);
+    transition: background-color var(--transition-speed), transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Modified: Added transform and box-shadow transitions */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Added: Initial shadow */
 }
 .Signup{
     background-color: rgb(144, 37, 37); /* Your specified color */
@@ -156,19 +197,27 @@ img {
     border-radius: 5px; /* Added border-radius */
     border: none;
     cursor: pointer;
-    transition: background-color var(--transition-speed);
+    transition: background-color var(--transition-speed), transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Modified: Added transform and box-shadow transitions */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Added: Initial shadow */
 }
 
 .login a, .Signup a {
     color: white; /* Ensure text inside buttons is white */
     text-decoration: none; /* Remove underline from links inside buttons */
+    display: block; /* Added: Make the entire button clickable */
+    width: 100%; /* Added */
+    height: 100%; /* Added */
 }
 
 .login:hover {
     background-color: rgb(20, 20, 150); /* Darker blue on hover */
+    transform: translateY(-1px); /* Added: Slight lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added: Increased shadow on hover */
 }
 .Signup:hover {
     background-color: rgb(100, 25, 25); /* Darker red on hover */
+    transform: translateY(-1px); /* Added: Slight lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added: Increased shadow on hover */
 }
 /* END OF YOUR CUSTOM NAV BAR STYLES */
 
@@ -182,13 +231,13 @@ section {
     padding: 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    margin-bottom: 40px; /* Space between sections */
+    margin-bottom: 40px;
     border-radius: var(--border-radius);
     background-color: var(--white);
     box-shadow: var(--box-shadow);
-    opacity: 0; /* For scroll animation */
-    transform: translateY(20px); /* For scroll animation */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    opacity: 0;
+    transform: translateY(30px); /* Modified: Increased initial Y offset for more noticeable animation */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Modified: Slightly faster animation */
 }
 
 section.visible {
@@ -199,15 +248,16 @@ section.visible {
 /* Hero Banner */
 .hero-banner {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--white);
-    box-shadow: none; /* Override default section shadow */
-    overflow: hidden; /* To contain pseudo-elements */
-    position: relative;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* Modified: Gradient background */
+    color: var(--white); /* Added: Ensure text is white on the dark background */
+    border-radius: var(--border-radius); /* Added: Border radius */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Added: More prominent shadow */
+    overflow: hidden; /* Added: Clip the pseudo-elements */
+    position: relative; /* Added: For positioning pseudo-elements */
+    flex-wrap: wrap;
 }
 
 .hero-banner::before {
@@ -217,10 +267,11 @@ section.visible {
     left: -50px;
     width: 200px;
     height: 200px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.1); /* Modified: Lighter color for contrast */
     border-radius: 50%;
-    filter: blur(40px);
+    filter: blur(60px); /* Modified: Increased blur */
     z-index: 0;
+    animation: pulse 3s ease-in-out infinite alternate; /* Added: Subtle pulse animation */
 }
 
 .hero-banner::after {
@@ -230,43 +281,68 @@ section.visible {
     right: -50px;
     width: 250px;
     height: 250px;
-    background-color: rgba(255, 255, 255, 0.07);
+    background-color: rgba(255, 255, 255, 0.15); /* Modified: Lighter color for contrast */
     border-radius: 50%;
-    filter: blur(50px);
+    filter: blur(70px); /* Modified: Increased blur */
     z-index: 0;
+    animation: pulse 2.5s ease-in-out infinite alternate-reverse; /* Added: Slightly different pulse */
 }
 
+/* Added: Keyframes for pulse animation */
+@keyframes pulse {
+    from {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
 
 .hero-content {
-    z-index: 1;
-    max-width: 800px;
-    margin-bottom: 2rem;
+    flex: 1;
+    min-width: 300px;
+    padding-right: 20px;
+    z-index: 1; /* Added: Ensure text is above pseudo-elements */
 }
 
 .hero-content h1 {
     color: var(--white);
     font-size: 3.5rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
 .hero-content p {
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    opacity: 0.9;
+    color: black;
+    opacity: 1; 
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1); /* Added: Text shadow */
 }
 
 .hero-image {
-    max-width: 700px;
-    border-radius: var(--border-radius);
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 500px; /* This could be restricting */
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    border-radius: var(--border-radius); /* Added: Border radius */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Added: Subtle shadow */
 }
 
 .hero-image img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    object-fit: cover;
+    border: none; /* Removed: Debug border */
+    transition: transform 0.5s ease-in-out;
+}
+
+.hero-image:hover img {
+    transform: scale(1.05);
 }
 
 /* Mission Statement Section */
@@ -276,6 +352,7 @@ section.visible {
     align-items: center;
     gap: 40px;
     padding: 60px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Added: More pronounced shadow */
 }
 
 .mission-text {
@@ -289,19 +366,30 @@ section.visible {
 .mission-text p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--light-text-color);
 }
 
 .mission-icon {
     flex: 1;
     text-align: center;
     color: var(--secondary-color);
+    font-size: 4rem; /* Modified: Make the icon larger */
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1); /* Added: Text shadow */
+    animation: rotate-icon 5s linear infinite; /* Added: Rotation animation */
+}
+
+/* Added: Keyframes for icon rotation */
+@keyframes rotate-icon {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* Why Choose Us Section */
 .why-choose-us {
     text-align: center;
-    background-color: var(--white);
+    background-color: var(--light-gray); /* Modified: Lighter background */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Added: More prominent shadow */
+    border-radius: var(--border-radius); /* Added: Border radius */
+    padding: 70px 20px; /* Modified: Slightly more padding */
 }
 
 .why-choose-us h2 {
@@ -311,28 +399,35 @@ section.visible {
 
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Modified: Slightly wider cards */
     gap: 30px;
     justify-content: center;
 }
 
 .cards-container .card {
-    background-color: var(--light-gray);
+    background-color: var(--white); /* Modified: White background */
     padding: 30px;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Modified: More noticeable shadow */
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .cards-container .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px); /* Modified: More pronounced lift */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Modified: Increased shadow */
 }
 
 .cards-container .card .icon-wrapper {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 15px;
+    animation: pulse-icon 2s ease-in-out infinite alternate; /* Added: Subtle icon pulse */
+}
+
+/* Added: Keyframes for pulse icon */
+@keyframes pulse-icon {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
 }
 
 .cards-container .card h3 {
@@ -342,14 +437,16 @@ section.visible {
 }
 
 .cards-container .card p {
-    color: var(--light-text-color);
     font-size: 0.95rem;
 }
 
 /* Who We Serve Section */
 .who-we-serve {
     text-align: center;
-    background-color: var(--background-color);
+    background-color: var(--white); /* Modified: White background */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Added: More prominent shadow */
+    border-radius: var(--border-radius); /* Added: Border radius */
+    padding: 70px 20px; /* Modified: More padding */
 }
 
 .who-we-serve h2 {
@@ -359,29 +456,37 @@ section.visible {
 
 .user-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Modified: Slightly wider items */
     gap: 30px;
     justify-content: center;
 }
 
 .user-item {
-    background-color: var(--white);
+    background-color: var(--light-gray); /* Modified: Lighter background */
     padding: 30px;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Modified: More noticeable shadow */
     text-align: center;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .user-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px); /* Modified: More pronounced lift */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Modified: Increased shadow */
 }
 
 .user-item .icon-wrapper {
     font-size: 3.5rem;
     color: var(--secondary-color);
     margin-bottom: 15px;
+    animation: bounce-icon 1.5s ease-in-out infinite; /* Added: Bouncing icon */
+}
+
+/* Added: Keyframes for bouncing icon */
+@keyframes bounce-icon {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-15px);}
+    60% {transform: translateY(-8px);}
 }
 
 .user-item h3 {
@@ -390,7 +495,6 @@ section.visible {
 }
 
 .user-item p {
-    color: var(--light-text-color);
     font-size: 0.95rem;
 }
 
@@ -401,7 +505,9 @@ section.visible {
     align-items: center;
     gap: 50px;
     padding: 60px;
-    background-color: var(--white);
+    background-color: var(--light-gray); /* Modified: Lighter background */
+    border-radius: var(--border-radius); /* Added: Border radius */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Added: More prominent shadow */
 }
 
 .story-image {
@@ -409,7 +515,7 @@ section.visible {
     min-width: 300px;
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Modified: More prominent shadow */
 }
 
 .story-image img {
@@ -417,6 +523,11 @@ section.visible {
     height: 350px;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease-in-out;
+}
+
+.story-image:hover img {
+    transform: scale(1.05);
 }
 
 .story-content {
@@ -432,7 +543,6 @@ section.visible {
 .story-content p {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--light-text-color);
 }
 
 /* Footer */
@@ -445,6 +555,19 @@ section.visible {
 
 .footer-cta {
     margin-bottom: 30px;
+    animation: fadeInUp 1s ease-in-out; /* Added: Subtle fade-in animation */
+}
+
+/* Added: Keyframes for fadeInUp animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .footer-cta h3 {
@@ -464,11 +587,12 @@ section.visible {
     color: var(--white);
     font-size: 1.5rem;
     margin: 0 15px;
-    transition: color var(--transition-speed);
+    transition: color var(--transition-speed), transform 0.2s ease-in-out; /* Modified: Added transform transition */
 }
 
 .social-links a:hover {
-    color: var(--light-gray);
+    color: var(--white);
+    transform: scale(1.1); /* Added: Scale on hover */
 }
 
 .legal-links {
@@ -479,15 +603,17 @@ section.visible {
     color: var(--light-gray);
     margin: 0 15px;
     font-size: 0.9rem;
-    transition: color var(--transition-speed);
+    transition: color var(--transition-speed), text-shadow 0.2s ease-in-out; /* Modified: Added text-shadow transition */
 }
 
 .legal-links a:hover {
     color: var(--white);
+    text-shadow: 0 0 2px var(--white); /* Added: Subtle text shadow on hover */
 }
 
 .copyright {
     font-size: 0.85rem;
+    color: white;
     opacity: 0.8;
 }
 
@@ -546,6 +672,13 @@ section.visible {
     }
     .nav .middle a {
         margin: 5px 0;
+    }
+    .right {
+        flex-direction: row; /* Added: Align buttons horizontally on smaller screens if space allows */
+        justify-content: center;
+    }
+    .right button { /* Added: Margin for buttons in smaller screens */
+        margin: 5px;
     }
 }
 
