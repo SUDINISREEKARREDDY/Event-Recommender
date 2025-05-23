@@ -26,6 +26,7 @@ body {
     overflow-x: hidden; /* Prevent horizontal scroll due to animations */
 }
 
+/* Base anchor styling for consistency, overridden by specific navbar styles */
 a {
     color: var(--primary-color);
     text-decoration: none;
@@ -76,6 +77,8 @@ img {
     border: none;
     cursor: pointer;
     font-family: 'Poppins', sans-serif; /* Ensure button text uses Poppins */
+    text-decoration: none; /* Ensure link within button is not underlined */
+    color: white; /* Default color for buttons */
 }
 
 .primary-btn {
@@ -88,75 +91,91 @@ img {
     transform: translateY(-2px);
 }
 
-/* YOUR CUSTOM NAV BAR STYLES (Copied from your provided code) */
+/* YOUR SPECIFIED NAV BAR STYLES (Copied directly from your prompt) */
 .nav{
     background-color: black;
     width: 100vw;
     height: 12vh;
     display: flex;
-    align-items: center; /* Vertically align items in the nav */
-    padding: 0 20px; /* Add some horizontal padding */
-    position: sticky;
+    align-items: center; /* Added for vertical alignment of nav items */
+    padding: 0 20px; /* Added for horizontal padding */
+    position: sticky; /* Make nav sticky */
     top: 0;
     z-index: 1000;
 }
 .left{
     width: 30%;
-    height: 100%; /* Take full height of nav */
-    display: flex; /* For logo alignment */
-    align-items: center;
+    height: 10vh;
+    display: flex; /* Added for logo alignment */
+    align-items: center; /* Added for logo alignment */
 }
 .nav-img{
     height: 40px;
     width: 40px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 20px; /* Adjusted margin */
+    margin: 8px 20px;
 }
 .middle{
     width: 50%;
-    height: 100%; /* Take full height of nav */
+    height: 10vh;
     display: flex;
     justify-content: space-evenly;
-    align-items: center; /* Vertically align links */
+    align-items: center; /* Added for vertical alignment of links */
 }
-.nav .middle a{ /* Specificity for your nav links */
+/* Specificity for nav links */
+.nav .middle a{
     color: white;
-    margin: 0 14px; /* Adjusted margin */
+    margin: 14px;
     text-decoration: none;
-    font-weight: 500; /* Added font weight */
-    transition: color var(--transition-speed); /* Smooth transition */
+    transition: color var(--transition-speed); /* Added for hover effect */
 }
 .nav .middle a:hover {
-    color: var(--secondary-color); /* Hover color */
+    color: var(--secondary-color); /* Added hover color */
 }
 .right{
-    width: 20%;
-    height: 100%; /* Take full height of nav */
-    display: flex;
+    width:20% ;
+    height: 10vh;
+    margin: 15px 10px 15px; /* Used your exact margin */
+    display: flex; /* Added for button alignment */
+    align-items: center; /* Added for button alignment */
     justify-content: flex-end; /* Align buttons to the right */
-    align-items: center; /* Vertically align buttons */
-    gap: 10px; /* Space between buttons */
-    margin: 0 10px; /* Adjusted margin */
+    gap: 10px; /* Added space between buttons */
 }
-.login, .Signup{
-    background-color: rgb(88, 146, 246);
-    color: white; /* Text color for buttons */
-    padding: 8px 18px; /* Padding for buttons */
-    border-radius: 5px; /* Slightly rounded corners for buttons */
-    cursor: pointer;
+.login{
+    background-color: rgb(26, 26, 200); /* Your specified color */
+    padding: 8px 18px; /* Added padding for button */
+    border-radius: 5px; /* Added border-radius */
     border: none;
+    cursor: pointer;
     transition: background-color var(--transition-speed);
 }
-.login:hover, .Signup:hover {
-    background-color: rgb(60, 120, 220); /* Darker blue on hover */
+.Signup{
+    background-color: rgb(144, 37, 37); /* Your specified color */
+    padding: 8px 18px; /* Added padding for button */
+    border-radius: 5px; /* Added border-radius */
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.login a, .Signup a {
+    color: white; /* Ensure text inside buttons is white */
+    text-decoration: none; /* Remove underline from links inside buttons */
+}
+
+.login:hover {
+    background-color: rgb(20, 20, 150); /* Darker blue on hover */
+}
+.Signup:hover {
+    background-color: rgb(100, 25, 25); /* Darker red on hover */
 }
 /* END OF YOUR CUSTOM NAV BAR STYLES */
 
 
 /* Main Content Sections */
 main {
-    padding-top: 2rem;
+    padding-top: 2rem; /* Add padding below the sticky nav */
 }
 
 section {
@@ -472,7 +491,7 @@ section.visible {
     opacity: 0.8;
 }
 
-/* Responsive Design */
+/* Responsive Design for Navbar and Content */
 @media (max-width: 992px) {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2rem; }
@@ -508,19 +527,22 @@ section.visible {
     /* Navbar adjustments for smaller screens */
     .nav {
         flex-wrap: wrap;
-        height: auto; /* Allow nav to expand */
+        height: auto;
         padding: 10px 20px;
+        flex-direction: column; /* Stack items vertically on smaller screens */
     }
     .left, .right {
         width: 100%;
         justify-content: center;
         margin-bottom: 10px;
+        height: auto; /* Allow height to adjust */
     }
     .middle {
         width: 100%;
-        flex-direction: column;
+        flex-direction: column; /* Stack links vertically */
         justify-content: center;
         margin-bottom: 10px;
+        height: auto; /* Allow height to adjust */
     }
     .nav .middle a {
         margin: 5px 0;
@@ -540,10 +562,8 @@ section.visible {
     .nav-img {
         margin: 10px auto;
     }
-    .nav .middle {
-        display: flex; /* Ensure links are displayed */
-        flex-wrap: wrap; /* Allow links to wrap */
-        justify-content: center;
+    .middle {
+        flex-wrap: wrap;
     }
     .nav .middle a {
         padding: 8px 10px;
@@ -553,7 +573,7 @@ section.visible {
         gap: 5px;
     }
     .login, .Signup {
-        width: 80%; /* Make buttons wider */
+        width: 80%;
     }
 
     .hero-banner {
