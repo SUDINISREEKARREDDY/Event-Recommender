@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f2f2f2;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  padding: 10px 40px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+  font-size: 22px;
+}
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.nav-links a:hover, .nav-links .active {
+  color: #6c63ff;
+}
+.auth-buttons .btn {
+  padding: 8px 16px;
+  margin-left: 10px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.btn.login {
+  background: #2e39ff;
+  color: #fff;
+}
+.btn.signup {
+  background: #d94646;
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+  padding: 60px 20px;
+  color: white;
+}
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+.hero p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* Events Section */
+.events-section {
+  padding: 60px 10%;
+}
+.events-section h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #4a00e0;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.event-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.event-card:hover {
+  transform: scale(1.03);
+}
+.event-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.event-info {
+  padding: 20px;
+}
+.event-info h3 {
+  font-size: 20px;
+  color: #222;
+}
+.event-info p {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #666;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* Responsive Fix */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
