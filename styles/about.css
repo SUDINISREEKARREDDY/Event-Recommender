@@ -124,103 +124,59 @@ img:hover {
 }
 
 /* YOUR SPECIFIED NAV BAR STYLES (Copied directly from your prompt) */
-.nav{
-    background-color: black;
-    width: 100vw;
-    height: 12vh;
-    display: flex;
-    align-items: center; /* Added for vertical alignment of nav items */
-    padding: 0 20px; /* Added for horizontal padding */
-    position: sticky; /* Make nav sticky */
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Added: Subtle shadow for sticky nav */
-}
-.left{
-    width: 30%;
-    height: 10vh;
-    display: flex; /* Added for logo alignment */
-    align-items: center; /* Added for logo alignment */
-}
-.nav-img{
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 8px 20px;
-    transition: transform 0.3s ease-in-out; /* Added: Transition for hover */
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
-.nav-img:hover {
-    transform: rotate(10deg) scale(1.1); /* Added: Rotate and scale on hover */
+body {
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-.middle{
-    width: 50%;
-    height: 10vh;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center; /* Added for vertical alignment of links */
-}
-/* Specificity for nav links */
-.nav .middle a{
-    color: white;
-    margin: 14px;
-    text-decoration: none;
-    transition: color var(--transition-speed), transform 0.2s ease-in-out; /* Modified: Added transform for hover */
-}
-.nav .middle a:hover {
-    color: var(--secondary-color); /* Added hover color */
-    transform: scale(1.1); /* Added: Scale up on hover */
-}
-.right{
-    width:20% ;
-    height: 10vh;
-    margin: 15px 10px 15px; /* Used your exact margin */
-    display: flex; /* Added for button alignment */
-    align-items: center; /* Added for button alignment */
-    justify-content: flex-end; /* Align buttons to the right */
-    gap: 10px; /* Added space between buttons */
-}
-.login{
-    background-color: rgb(26, 26, 200); /* Your specified color */
-    padding: 8px 18px; /* Added padding for button */
-    border-radius: 5px; /* Added border-radius */
-    border: none;
-    cursor: pointer;
-    transition: background-color var(--transition-speed), transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Modified: Added transform and box-shadow transitions */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Added: Initial shadow */
-}
-.Signup{
-    background-color: rgb(144, 37, 37); /* Your specified color */
-    padding: 8px 18px; /* Added padding for button */
-    border-radius: 5px; /* Added border-radius */
-    border: none;
-    cursor: pointer;
-    transition: background-color var(--transition-speed), transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Modified: Added transform and box-shadow transitions */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Added: Initial shadow */
+/* Navbar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0c0c2e;
+  padding: 10px 30px;
+  color: white;
 }
 
-.login a, .Signup a {
-    color: white; /* Ensure text inside buttons is white */
-    text-decoration: none; /* Remove underline from links inside buttons */
-    display: block; /* Added: Make the entire button clickable */
-    width: 100%; /* Added */
-    height: 100%; /* Added */
+.nav .nav-img {
+  height: 40px;
 }
 
-.login:hover {
-    background-color: rgb(20, 20, 150); /* Darker blue on hover */
-    transform: translateY(-1px); /* Added: Slight lift on hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added: Increased shadow on hover */
+.nav .middle a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
 }
-.Signup:hover {
-    background-color: rgb(100, 25, 25); /* Darker red on hover */
-    transform: translateY(-1px); /* Added: Slight lift on hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added: Increased shadow on hover */
-}
-/* END OF YOUR CUSTOM NAV BAR STYLES */
 
+.nav .middle .active {
+  border-bottom: 2px solid #00aaff;
+}
+
+.nav .right button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav .right a {
+  color: white;
+  text-decoration: none;
+}
 
 /* Main Content Sections */
 main {
